@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Joe's Hotdog Stand </title>
+<meta charset="utf-8">
+<script>
+
+let num_of_hotdogs = prompt("How many hot dogs would you like?");
+let num_of_fries = prompt("How many orders of fries would you like?");
+let num_of_drinks = prompt("How many drinks would you like?");
+
+document.write("You are ordering " + num_of_hotdogs + " hotdog(s), " + num_of_fries
++ " orders of fries, and " + num_of_drinks + " drink(s)." + "<br>");
+
+num_of_hotdogs = 3.75 * parseFloat(num_of_hotdogs);
+num_of_fries = 2 * parseFloat(num_of_fries);
+num_of_drinks = 1.50 * parseFloat(num_of_drinks);
+
+let cost_of_hotdogs = num_of_hotdogs.toFixed(2);
+let cost_of_fries = num_of_fries.toFixed(2);
+let cost_of_drinks = num_of_drinks.toFixed(2);
+let order_total = parseFloat(cost_of_hotdogs) + parseFloat(cost_of_fries) + parseFloat(cost_of_drinks);
+
+document.write("Cost of Hot Dogs: $" + cost_of_hotdogs + ". Cost of Fries: $"
++ cost_of_fries + ". Cost of Drinks: $" + cost_of_drinks + "<br>");
+
+if (order_total >= 20) {
+  let discount = order_total * 0.10;
+  discount = discount.toFixed(2);
+  order_total = order_total - discount;
+  order_total = order_total.toFixed(2);
+  document.write("You are eligible for a discount of $" + discount + ". Your new total is $" + order_total + ". <br>");
+} else {
+  order_total = order_total.toFixed(2);
+  document.write("You are not eligible for a discount because your purchase is below $20. Your current total is $" + order_total + ". <br>")
+}
+
+let tax = order_total * 0.0625;
+tax = tax.toFixed(2);
+order_total = parseFloat(order_total);
+tax = parseFloat(tax);
+let tax_order_total = order_total + tax;
+tax_order_total = parseFloat(tax_order_total);
+tax_order_total = tax_order_total.toFixed(2);
+
+document.write("You must pay $" + tax + " in taxes. After applying tax, your final total is $" + tax_order_total + ".");
+
+</script>
+</head>
+
+<body>
+
+</body>
+</html>
