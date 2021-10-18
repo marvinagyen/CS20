@@ -74,11 +74,11 @@ if ((lucky_ball == lucky_ball_guess) && (nums_matched >= 5)) {
   else if ((lucky_ball != lucky_ball_guess) && (nums_matched = 2)) {
   document.write("Prize money: $3.") }
   // there's no payout for a match of 0 and 1? It's not clear whether we're
-  // supposed to make it ourselves.
+  // supposed to make it ourselves. I made it myself.
   else if ((lucky_ball != lucky_ball_guess) && (nums_matched = 1)) {
-  document.write("Prize money: ") }
+  document.write("Prize money: $1") }
   else if ((lucky_ball != lucky_ball_guess) && (nums_matched = 0)) {
-  document.write("Prize money: ") }
+  document.write("Prize money: $0") }
 
 </script>
 </head>
