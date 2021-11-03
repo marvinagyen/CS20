@@ -37,7 +37,7 @@
             console.log(song_list.songs)
             strHTML = "<ul>";
             song_list.songs.forEach(function(song) {
-              strHTML += "<li>" + song.name + " : " + song.artist + "</li>";
+              strHTML += "<li>" + song.name + " : " + song.artist + " : " + song.genre + " : " + song.yr_released + "</li>";
             })
             strHTML += "</ul>";
             document.getElementById("data").innerHTML =strHTML;
