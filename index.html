@@ -6,6 +6,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- JSON file must be online in order for CORS to work -->
     <script src = "songs.json"> </script>
+    <!-- instead of using an array, use 11 individual objects -->
+
+
     <script>
       function loadFile() {
         /* Step 1: Make instance of request object...
@@ -32,8 +35,8 @@
             animals = JSON.parse(result);
 
             strHTML = "<ul>";
-            animals.forEach(function(animal) {
-              strHTML += "<li>" + animal.name + " : " + animal.type + "</li>";
+            songs.forEach(function(song) {
+              strHTML += "<li>" + song.name + " : " + song.artist + "</li>";
             })
             strHTML += "</ul>";
             document.getElementById("data").innerHTML =strHTML;
