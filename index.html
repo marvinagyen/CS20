@@ -32,11 +32,11 @@
             // Step 5: wait for done + success
 
             result = request.responseText;
-            songs = JSON.parse(result);
-            console.log(songs)
-            console.log(songs.songs)
+            song_list = JSON.parse(result);
+            console.log(song_list)
+            console.log(song_list.songs)
             strHTML = "<ul>";
-            songs[0].forEach(function(song) {
+            song_list.songs.forEach(function(song) {
               strHTML += "<li>" + song.name + " : " + song.artist + "</li>";
             })
             strHTML += "</ul>";
