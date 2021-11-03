@@ -1,63 +1,62 @@
 [{
- "songs": [{
+ "song1": {
      "name": "Ex-Factor",
      "artist": "Lauryn Hill",
      "genre": "Soul",
      "yr_released": "1998"
    },
-   {
+   "song2" : {
      "name": "Doo Wop (That Thing)",
      "artist": "Lauryn Hill",
      "genre": "Soul",
      "yr_released": "1998"
    },
-   {
+   "song3" : {
      "name": "Can't Take my Eyes Off of You",
      "artist": "Lauryn Hill",
      "genre": "Soul",
      "yr_released": "1998"
    },
-   {
+   "song4" : {
      "name": "I Used to Love Him",
      "artist": "Lauryn Hill",
      "genre": "Soul",
      "yr_released": "1998"
    },
-   {
+   "song5" : {
      "name": "Billie Jean",
      "artist": "Michael Jackson",
      "genre": "Rock",
      "yr_released": "1982"
    },
-   {
+   "song6" : {
      "name": "Thriller",
      "artist": "Michael Jackson",
      "genre": "Rock",
      "yr_released": "1982"
    },
-   {
+   "song7" : {
      "name": "Wanna Be Startin Somethin",
      "artist": "Michael Jackson",
      "genre": "Rock",
      "yr_released": "1987"
    },
-   {
+   "song8" : {
      "name": "Bad",
      "artist": "Michael Jackson",
      "genre": "Rock",
      "yr_released": "1987"
    },
-   {
+   "song9" : {
      "name": "In A Sentimental Mood",
      "artist": "Duke Ellington ",
      "genre": "Jazz",
      "yr_released": "1957"
    },
-   {
+  "song10" : {
      "name": "Take the A Train",
      "artist": "Duke Ellington",
      "genre": "Jazz",
      "yr_released": "1957"
    }
- ]
 }]
