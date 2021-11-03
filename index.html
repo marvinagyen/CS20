@@ -33,10 +33,9 @@
 
             result = request.responseText;
             song_list = JSON.parse(result);
-            console.log(song_list)
-            console.log(song_list.songs)
+            console.log(song_list);
             strHTML = "<ul>";
-            song_list.songs.forEach(function(song) {
+            song_list.forEach(function(song) {
               strHTML += "<li>" + song.name + " : " + song.artist + " : " + song.genre + " : " + song.yr_released + "</li>";
             })
             strHTML += "</ul>";
