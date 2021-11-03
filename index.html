@@ -35,7 +35,7 @@
             songs = JSON.parse(result);
 
             strHTML = "<ul>";
-            songs.forEach(function(song) {
+            songs[0].forEach(function(song) {
               strHTML += "<li>" + song.name + " : " + song.artist + "</li>";
             })
             strHTML += "</ul>";
