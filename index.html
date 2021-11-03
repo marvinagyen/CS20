@@ -33,7 +33,7 @@
 
             result = request.responseText;
             songs = JSON.parse(result);
-
+            console.log(songs)
             strHTML = "<ul>";
             songs[0].forEach(function(song) {
               strHTML += "<li>" + song.name + " : " + song.artist + "</li>";
