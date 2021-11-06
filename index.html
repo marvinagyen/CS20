@@ -4,10 +4,12 @@
     <meta charset="utf-8">
     <title></title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!-- JSON file must be online in order for CORS to work -->
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.js"
+    integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous">
+    </script>
     <script src = "songs.json"> </script>
-    <!-- instead of using an array, use 11 individual objects -->
-
 
     <script>
       function loadFile() {
@@ -33,14 +35,43 @@
 
             result = request.responseText;
             song_list = JSON.parse(result);
-            console.log(song_list);
+            // console.log(song_list);
             console.log(song_list.songs);
             strHTML = "<ul>";
             song_list.songs.forEach(function(song) {
-              strHTML += "<li>" + song.name + " : " + song.artist + " : " + song.genre + " : " + song.yr_released + "</li>";
+              strHTML += song.name + "<br>" + "Artist: " + song.artist + "<br>" + "Genre: " + song.genre + "<br>" + "Released in " + song.yr_released + "<br>" + "<br>";
             })
             strHTML += "</ul>";
             document.getElementById("data").innerHTML =strHTML;
+
+          let filter_genres;
+
+          function filtering(genre){
+            $('select[name="dropdown"]').change(function(){
+
+               if ($(this).val() == 'soul'){
+                filter_genes = song_list.songs.filter(function(currSong){
+                  return currSong.genre == "Soul";
+                })
+                document.getElementById("filtered").innerHTML = filter_genres;
+
+               }
+               if ($(this).val() == 'rock'){
+                 filter_genes = song_list.songs.filter(function(currSong){
+                   return currSong.genre == "Rock";
+                 })
+                   document.getElementById("filtered").innerHTML = filter_genres;
+               }
+               if ($(this).val() == 'jazz'){
+                 filter_genes = song_list.songs.filter(function(currSong){
+                   return currSong.genre == "Jazz";
+                 })
+                    document.getElementById("filtered").innerHTML = filter_genres;
+               }
+
+               })
+          }
+
           }
           else if (request.readyState == 4 && request.status != 200) {
 
@@ -58,13 +89,51 @@
       // Step 4: fire off the HTTP request
         request.send();
         console.log("4 - Request sent");
-      }
+
+}
+
     </script>
   </head>
   <body onload="loadFile()">
 
     <div id="data">Loading...</div>
 
+    <select name = "dropdown">
+      <option value = "soul"> Soul </option>
+      <option value = "rock"> Rock </option>
+      <option value = "jazz"> Jazz </option>
+    </select>
+
+    <button onclick = "filtering()"> Filter </button>
+
+    <div id = "filtered"> </div>
+
+    <script>
+    // let filter_genres;
+    //
+    // console.log(song_list.songs.filter(function(song){
+    //   return song.genre == "Rock";
+    // }))
+    //
+    // function filtering(){
+    //   $('select[name="dropdown"]').change(function(){
+    //
+    //      if ($(this).val() == 'soul'){
+    //         filter_genres = song_list.songs.filter(function(song){
+    //          return song.genre == "Soul";
+    //      })}
+    //      if ($(this).val() == 'rock'){
+    //         filter_genres = song_list.songs.filter(function(song){
+    //         return song.genre == "Rock";
+    //      })}
+    //      if ($(this).val() == 'jazz'){
+    //         filter_genres = song_list.songs.filter(function(song){
+    //         return song.genre == "Jazz";
+    //      })}
+    //
+    //      })
+    // }
+    </script>
 
   </body>
 </html>
