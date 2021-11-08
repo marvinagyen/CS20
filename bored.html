@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script>
+
+    async function fetchActivity() {
+      // Fetch the content from the URL
+      const fetchResponse = await fetch('http://www.boredapi.com/api/activity/');
+
+      const activity = await fetchResponse.json();
+      console.log(activity);
+
+      const activityContainer = document.getElementById("activity-container");
+			activityContainer.innerText = "Today I will " + activity.activity + ". This type of activity is "
+			+ activity.type + ". It should only take  " + activity.participants + " participant(s).";
+    }
+
+  </script>
+</head>
+<body onload="fetchActivity()">
+
+  <div>
+    <h1> Random Activity for Bored People </h1>
+    <p> This API randomly selects an object with an activity to do and other details about it.
+			I found it at https://www.boredapi.com/api/activity. I requested this object's
+			values for the keys activity, type, and participants. </p>
+
+		<h4> Two Applications where this could be helpful: </h4>
+    <ol>
+      <li> An Application for people who are incredibly indecisive about what to do with their time. </li>
+      <li> An Application for people who have exceeded their screen time and
+				need a new activity. </li>
+    </ol>
+  </div>
+
+  <div id="activity-container"></div>
+</body>
+</html>
