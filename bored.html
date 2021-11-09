@@ -3,18 +3,69 @@
 <head>
 	<script>
 
-    async function fetchActivity() {
-      // Fetch the content from the URL
-      const fetchResponse = await fetch('http://www.boredapi.com/api/activity/');
+    // async function fetchActivity() {
+    //   // Fetch the content from the URL
+    //   const fetchResponse = await fetch('http://www.boredapi.com/api/activity/');
+		//
+    //   const activity = await fetchResponse.json();
+    //   console.log(activity);
+		//
+    //   const activityContainer = document.getElementById("activity-container");
+		// 	activityContainer.innerText = "Today I will " + activity.activity + ". This type of activity is "
+		// 	+ activity.type + ". It should only take  " + activity.participants + " participant(s).";
+    // }
 
-      const activity = await fetchResponse.json();
-      console.log(activity);
+		function fetchActivity(){
+			/* Step 1: Make instance of request object...
+			...to make HTTP request after page is loaded*/
+			request = new XMLHttpRequest();
+			console.log("1 - request object created");
 
-      const activityContainer = document.getElementById("activity-container");
-			activityContainer.innerText = "Today I will " + activity.activity + ". This type of activity is "
-			+ activity.type + ". It should only take  " + activity.participants + " participant(s).";
-    }
+			// Step 2: Set the URL for the AJAX request to be the JSON file
 
+			request.open("GET", "'http://www.boredapi.com/api/activity/", true);
+
+			console.log("2 - opened request file");
+
+			// Step 3: set up event handler/callback
+
+			request.onreadystatechange = function() {
+				console.log("3 - readystatechange event fired.");
+
+				if (request.readyState == 4 && request.status == 200) {
+
+					// Step 5: wait for done + success
+
+					result = request.responseText;
+					console.log(result)
+					activity = JSON.parse(result);
+					console.log(activity);
+
+					const activityContainer = document.getElementById("activity-container");
+					activityContainer.innerText = "Today I will " + activity.activity + ". This type of activity is "
+					+ activity.type + ". It should only take  " + activity.participants + " participant(s).";
+
+
+				}
+				else if (request.readyState == 4 && request.status != 200) {
+
+				document.getElementById("activity_container").innerHTML = "Something is wrong!  Check the logs to see where this went off the rails";
+
+				}
+
+				else if (request.readyState == 3) {
+
+					document.getElementById("activity_container").innerHTML = "Too soon!  Try again";
+
+				}
+
+			}
+		// Step 4: fire off the HTTP request
+			request.send();
+			console.log("4 - Request sent");
+
+
+		}
   </script>
 </head>
 <body onload="fetchActivity()">
