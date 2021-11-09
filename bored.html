@@ -23,7 +23,7 @@
 
 			// Step 2: Set the URL for the AJAX request to be the JSON file
 
-			request.open("GET", "'http://www.boredapi.com/api/activity/", true);
+			request.open("GET", "http://www.boredapi.com/api/activity/", true);
 
 			console.log("2 - opened request file");
 
@@ -55,7 +55,7 @@
 
 				else if (request.readyState == 3) {
 
-					document.getElementById("activity_container").innerHTML = "Too soon!  Try again";
+				document.getElementById("activity-container").innerHTML = "Too soon! Try again";
 
 				}
 
